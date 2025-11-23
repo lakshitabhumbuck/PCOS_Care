@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PCOS Assessment</title>
+    <link rel="stylesheet" href="assessment.css">
+    <link rel="stylesheet"
+     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- Background Blobs -->
+    <div class="blob blob1"></div>
+    <div class="blob blob2"></div>
+
+    <div class="container">
+
+        <!-- Progress Bar -->
+        <div class="progress-wrapper">
+            <div class="progress">
+                <div class="progress-bar" id="progressBar"></div>
+            </div>
+            <p id="progressText">Step 1 of 5</p>
+        </div>
+
+        <!-- FORM BOX -->
+        <div class="form-box">
+
+            <!-- STEP 1 : PERSONAL INFO -->
+            <section class="step active" id="step1">
+
+                <h2>Personal Information</h2>
+
+                <div class="input-group">
+                    <i class="fa-solid fa-user"></i>
+                    <input type="number" id="age" placeholder="Enter your age" required>
+                    <label>Age</label>
+                </div>
+
+                <div class="input-inline">
+                    <div class="input-group">
+                        <i class="fa-solid fa-weight-scale"></i>
+                        <input type="number" id="weight" placeholder="Weight in kg" required>
+                        <label>Weight (kg)</label>
+                    </div>
+
+                    <div class="input-group">
+                        <i class="fa-solid fa-ruler"></i>
+                        <input type="number" id="height" placeholder="Height in cm" required>
+                        <label>Height (cm)</label>
+                    </div>
+                </div>
+
+                <div class="bmi-box">
+                    <p>Your BMI: <span id="bmiValue">--</span></p>
+                </div>
+
+                <button class="next-btn">Next →</button>
+            </section>
+
+
+            <!-- STEP 2 : MENSTRUAL HEALTH -->
+            <section class="step" id="step2">
+
+                <h2>Menstrual Health</h2>
+
+                <div class="radio-group">
+                    <label><input type="radio" name="cycle" value="Regular"> Regular</label>
+                    <label><input type="radio" name="cycle" value="Irregular"> Irregular</label>
+                </div>
+
+                <div class="hidden extra-fields" id="extraFields">
+                    <div class="input-group">
+                        <i class="fa-solid fa-calendar-days"></i>
+                        <input type="number" id="cycleDuration" placeholder="e.g., 35">
+                        <label>Cycle Duration (days)</label>
+                    </div>
+
+                    <div class="input-group">
+                        <i class="fa-solid fa-calendar-minus"></i>
+                        <input type="number" id="cycleGap" placeholder="e.g., 10">
+                        <label>Gap Between Cycles (days)</label>
+                    </div>
+                </div>
+
+                <button class="prev-btn">← Back</button>
+                <button class="next-btn">Next →</button>
+            </section>
+
+
+            <!-- STEP 3 : SYMPTOMS -->
+            <section class="step" id="step3">
+
+                <h2>Symptoms</h2>
+
+                <div class="checkbox-grid">
+                    <label><input type="checkbox" value="Acne" class="symptom-checkbox"> Acne</label>
+                    <label><input type="checkbox" value="Hair Loss" class="symptom-checkbox"> Hair Loss</label>
+                    <label><input type="checkbox" value="Hair Growth" class="symptom-checkbox"> Hair Growth</label>
+                    <label><input type="checkbox" value="Fatigue" class="symptom-checkbox"> Fatigue</label>
+                    <label><input type="checkbox" value="Mood Swings" class="symptom-checkbox"> Mood Swings</label>
+                    <label><input type="checkbox" value="Weight Gain" class="symptom-checkbox"> Weight Gain</label>
+                </div>
+
+                <button class="prev-btn">← Back</button>
+                <button class="next-btn">Next →</button>
+            </section>
+
+
+            <!-- STEP 4 : LIFESTYLE -->
+            <section class="step" id="step4">
+
+                <h2>Lifestyle Details</h2>
+
+                <div class="input-group">
+                    <i class="fa-solid fa-bicycle"></i>
+                    <input type="text" id="exerciseFrequency" placeholder="e.g., Daily, Weekly, None" required>
+                    <label>Exercise Frequency</label>
+                </div>
+
+                <div class="input-group">
+                    <i class="fa-solid fa-bowl-food"></i>
+                    <input type="text" id="dietType" placeholder="e.g., Normal, Healthy, Fast Food" required>
+                    <label>Diet Type</label>
+                </div>
+
+                <div class="input-group">
+                    <i class="fa-solid fa-bed"></i>
+                    <input type="number" id="sleepHours" placeholder="e.g., 7" min="0" max="24" required>
+                    <label>Sleep Hours</label>
+                </div>
+
+                <button class="prev-btn">← Back</button>
+                <button class="next-btn">Next →</button>
+            </section>
+
+
+            <!-- STEP 5 : UPLOADS -->
+            <section class="step" id="step5">
+                <h2>Upload Reports</h2>
+
+                <div class="upload-box" id="uploadBox">
+                    <i class="fa-solid fa-cloud-arrow-up"></i>
+                    <p>Drag & Drop or Click to Upload</p>
+                    <input type="file" id="uploadInput" hidden>
+                </div>
+
+                <img id="previewImg" class="hidden preview-img"/>
+
+                <button class="prev-btn">← Back</button>
+                <button class="submit-btn">Submit</button>
+            </section>
+
+        </div>
+
+    </div>
+
+<script src="assessment.js"></script>
+
+</body>
+</html>

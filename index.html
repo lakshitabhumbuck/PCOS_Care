@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PCOS Care</title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f9f7ff;
+            overflow-y: auto;
+        }
+
+        /* NAVBAR */
+        .navbar {
+            width: 100%;
+            background: white;
+            padding: 15px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo { font-size: 28px; font-weight: bold; color: #6a0dad; }
+        .logo span { color: #ff3e8d; }
+
+        .nav-links a {
+            margin-left: 25px;
+            color: #333;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .login-btn {
+            background: #6a0dad;
+            color: white;
+            padding: 10px 18px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        /* HERO */
+        .hero {
+            width: 100%;
+            height: 65vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 80px;
+        }
+
+        .hero-text { width: 50%; }
+        .hero-text h1 { font-size: 48px; color: #6a0dad; }
+        .hero-text p { margin-top: 15px; font-size: 18px; }
+        .cta-btn {
+            margin-top: 25px;
+            padding: 12px 25px;
+            background: #ff3e8d;
+            color: white;
+            border-radius: 8px;
+            display: inline-block;
+        }
+        .hero img {
+            width: 40%;
+            border-radius: 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        /* ARTICLES */
+        .articles-section { padding: 40px 80px; }
+        .articles-section h2 { font-size: 30px; color: #6a0dad; margin-bottom: 25px; }
+
+        .articles-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .article-card {
+            background: white;
+            width: 30%;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            cursor: pointer;
+        }
+        .article-card img { width: 100%; height: 180px; border-radius: 12px 12px 0 0; }
+        .article-card h3 { margin: 15px; color: #6a0dad; }
+        .read-btn {
+            margin-left: 15px;
+            background: #6a0dad;
+            color: white;
+            padding: 10px 14px;
+            border-radius: 8px;
+            text-decoration: none;
+        }
+
+
+        /* -------- NEW SECTIONS BELOW -------- */
+
+        /* AWARENESS SECTION */
+        .awareness {
+            padding: 60px 80px;
+            text-align: center;
+        }
+        .awareness h2 {
+            font-size: 30px;
+            color: #6a0dad;
+            margin-bottom: 20px;
+        }
+        .stats-boxes {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+        .stat-card {
+            width: 30%;
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        .stat-card h3 { font-size: 28px; color: #ff3e8d; }
+
+        /* KEY FEATURES */
+        .features {
+            padding: 60px 80px;
+        }
+        .features h2 {
+            font-size: 30px;
+            color: #6a0dad;
+            margin-bottom: 20px;
+        }
+        .feature-grid {
+            display: flex;
+            justify-content: space-between;
+        }
+        .feature-box {
+            width: 22%;
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0px 3px 10px rgba(0,0,0,0.1);
+        }
+
+        /* WHO IS THIS FOR */
+        .who {
+            padding: 60px 80px;
+            background: white;
+        }
+        .who ul li { margin-bottom: 10px; font-size: 18px; }
+
+        /* QUIZ TEASER */
+        .quiz {
+            padding: 60px;
+            text-align: center;
+            background: #ffe3f1;
+        }
+        .quiz a {
+            background: #6a0dad;
+            padding: 12px 25px;
+            border-radius: 8px;
+            color: white;
+        }
+
+        /* FAQ */
+        .faq {
+            padding: 60px 80px;
+        }
+        .faq-box { margin-bottom: 20px; }
+        .faq-q { font-size: 20px; color: #6a0dad; cursor: pointer; }
+        .faq-a { display: none; padding: 10px 0; }
+
+        /* TESTIMONIALS */
+        .testimonials {
+            padding: 60px 80px;
+            background: #fff2fb;
+        }
+        .testimonial-card {
+            width: 30%;
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        /* FOOTER */
+        footer {
+            margin-top: 60px;
+            background: #6a0dad;
+            color: white;
+            padding: 40px 80px;
+            text-align: center;
+        }
+
+
+        /* LOGIN POPUP STAYS SAME */
+        .modal { position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.6); display: none; align-items: center; justify-content: center; }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="logo">PCOS<span>Care</span></div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="assessment.html">Assessment</a>
+            <span class="login-btn" onclick="openLogin()">Login</span>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-text">
+            <h1>Your PCOS Awareness Companion</h1>
+            <p>Understand symptoms, diagnosis, lifestyle tips, and take a quick self-assessment.</p>
+            <a class="cta-btn" href="assessment.html">Start Assessment →</a>
+        </div>
+        <img src="images/hero.jpg">
+    </section>
+
+    <!-- ARTICLE SECTION -->
+    <section class="articles-section">
+        <h2>Learn About PCOS</h2>
+        <div class="articles-container">
+            <div class="article-card">
+                <img src="images/pcos1.jpg">
+                <h3>What is PCOS?</h3>
+                <p>A clear explanation of PCOS.</p>
+                <a href="article-what-is-pcos.html" class="read-btn">Read More</a>
+            </div>
+
+            <div class="article-card">
+                <img src="images/symptoms.jpg">
+                <h3>Symptoms</h3>
+                <p>Know what signs to look for.</p>
+                <a href="article-symptoms.html" class="read-btn">Read More</a>
+            </div>
+
+            <div class="article-card">
+                <img src="images/diagnosis.jpg">
+                <h3>Diagnosis</h3>
+                <p>Learn how PCOS is clinically detected.</p>
+                <a href="article-diagnosis.html" class="read-btn">Read More</a>
+            </div>
+
+            <div class="article-card">
+                <img src="images/lifestyle.jpg">
+                <h3>Lifestyle & Diet</h3>
+                <p>Habits that help reduce symptoms.</p>
+                <a href="article-lifestyle.html" class="read-btn">Read More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW SECTION: AWARENESS -->
+    <section class="awareness">
+        <h2>Why PCOS Awareness Matters</h2>
+        <div class="stats-boxes">
+            <div class="stat-card">
+                <h3>1 in 5</h3>
+                <p>Women in India have PCOS</p>
+            </div>
+            <div class="stat-card">
+                <h3>70%</h3>
+                <p>Remain undiagnosed</p>
+            </div>
+            <div class="stat-card">
+                <h3>40%</h3>
+                <p>Face fertility challenges</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- KEY FEATURES -->
+    <section class="features">
+        <h2>What This App Offers</h2>
+        <div class="feature-grid">
+            <div class="feature-box">Self-assessment Test</div>
+            <div class="feature-box">AI Chat Support</div>
+            <div class="feature-box">Trusted Articles</div>
+            <div class="feature-box">Lifestyle Guidance</div>
+        </div>
+    </section>
+
+    <!-- WHO APP IS FOR -->
+    <section class="who">
+        <h2>Who Is This For?</h2>
+        <ul>
+            <li>Girls facing irregular periods</li>
+            <li>Women planning pregnancy</li>
+            <li>Teens confused about symptoms</li>
+            <li>Anyone wanting awareness</li>
+        </ul>
+    </section>
+
+    <!-- MINI QUIZ -->
+    <section class="quiz">
+        <h2>Curious About Your Symptoms?</h2>
+        <p>Take the 2-minute assessment to check risk level.</p>
+        <a href="assessment.html">Start Now →</a>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-box">
+            <div class="faq-q" onclick="toggleFAQ(this)">What causes PCOS?</div>
+            <div class="faq-a">Hormonal imbalance and insulin resistance.</div>
+        </div>
+        <div class="faq-box">
+            <div class="faq-q" onclick="toggleFAQ(this)">Is PCOS curable?</div>
+            <div class="faq-a">It is manageable but not fully curable.</div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="testimonials">
+        <h2>What Users Say</h2>
+        <div style="display:flex; gap:30px;">
+            <div class="testimonial-card">
+                “The quiz helped me understand my symptoms!”
+            </div>
+            <div class="testimonial-card">
+                “Very simple and clear information.”
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        © 2025 PCOS Care • All Rights Reserved
+    </footer>
+
+   
+<div class="modal" id="loginModal">
+    <div class="modal-content">
+        <h2>Login</h2>
+        <input type="email" placeholder="Email">
+        <input type="password" placeholder="Password">
+        <button class="modal-btn">Login</button>
+    </div>
+</div>
+
+<div class="modal" id="signupModal">
+    <div class="modal-content">
+        <h2>Sign Up</h2>
+        <input type="text" placeholder="Name">
+        <input type="email" placeholder="Email">
+        <input type="password" placeholder="Password">
+        <button class="modal-btn">Create Account</button>
+    </div>
+</div>
+<!-- NEW LOGIN POPUP -->
+<div class="popup-overlay login-popup">
+    <div class="popup-box">
+        <span class="close">&times;</span>
+        <h2>Login</h2>
+
+        <form>
+            <div class="input-field">
+                <label>Email</label>
+                <input type="email" placeholder="Enter email" required>
+            </div>
+
+            <div class="input-field">
+                <label>Password</label>
+                <input type="password" placeholder="Enter password" required>
+            </div>
+
+            <button type="submit" class="popup-btn">Login</button>
+
+            <p class="switch-text">
+                New user?
+                <span class="switch-to-signup">Sign Up</span>
+            </p>
+        </form>
+    </div>
+</div>
+
+<!-- NEW SIGNUP POPUP -->
+<div class="popup-overlay signup-popup">
+    <div class="popup-box">
+        <span class="close">&times;</span>
+        <h2>Create Account</h2>
+
+        <form>
+            <div class="input-field">
+                <label>Name</label>
+                <input type="text" placeholder="Enter name" required>
+            </div>
+
+            <div class="input-field">
+                <label>Email</label>
+                <input type="email" placeholder="Enter email" required>
+            </div>
+
+            <div class="input-field">
+                <label>Password</label>
+                <input type="password" placeholder="Create password" required>
+            </div>
+
+            <button type="submit" class="popup-btn">Sign Up</button>
+
+            <p class="switch-text">
+                Already have an account?
+                <span class="switch-to-login">Login</span>
+            </p>
+        </form>
+    </div>
+</div>
+
+
+    <script>
+        function openLogin() {
+            loginModal.style.display = "flex";
+            signupModal.style.display = "none";
+        }
+        function openSignup() {
+            signupModal.style.display = "flex";
+            loginModal.style.display = "none";
+        }
+
+        function toggleFAQ(el) {
+            let answer = el.nextElementSibling;
+            answer.style.display = answer.style.display === "block" ? "none" : "block";
+        }
+
+        window.onclick = function(e) {
+            if (e.target.classList.contains("modal")) {
+                e.target.style.display = "none";
+            }
+        };
+    </script>
+
+</body>
+</html>

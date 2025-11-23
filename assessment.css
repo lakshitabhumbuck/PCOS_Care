@@ -1,0 +1,263 @@
+/* --------------------------
+  GLOBAL
+---------------------------*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, #ffe6f2, #fff3fc, #ffe8ff);
+  min-height: 100vh;
+  overflow-x: hidden;
+  padding: 40px 0;
+}
+
+/* --------------------------
+  BACKGROUND BLOBS
+---------------------------*/
+.blob {
+  position: absolute;
+  width: 350px;
+  height: 350px;
+  background: #ffb6d9;
+  border-radius: 50%;
+  filter: blur(120px);
+  z-index: -1;
+}
+
+.blob1 {
+  top: -80px;
+  left: -50px;
+}
+
+.blob2 {
+  bottom: -80px;
+  right: -40px;
+}
+
+/* --------------------------
+  CONTAINER
+---------------------------*/
+.container {
+  width: 90%;
+  max-width: 600px;
+  margin: auto;
+}
+
+/* --------------------------
+  PROGRESS BAR
+---------------------------*/
+.progress-wrapper {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.progress {
+  width: 100%;
+  height: 10px;
+  background: #ffd6ea;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  width: 0%;
+  height: 100%;
+  background: linear-gradient(90deg, #ff3e9d, #ff6ec4);
+  transition: 0.4s ease;
+}
+
+#progressText {
+  margin-top: 10px;
+  color: #7a006a;
+  font-weight: 600;
+}
+
+/* --------------------------
+  FORM BOX
+---------------------------*/
+.form-box {
+  background: rgba(255,255,255,0.7);
+  backdrop-filter: blur(20px);
+  padding: 30px 25px;
+  border-radius: 20px;
+  box-shadow: 0px 8px 25px rgba(0,0,0,0.15);
+  position: relative;
+  overflow: hidden;
+}
+
+/* STEP ANIMATION */
+.step {
+  display: none;
+  animation: fadeSlide 0.5s ease;
+}
+
+@keyframes fadeSlide {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0px); }
+}
+
+.step.active {
+  display: block;
+}
+
+/* --------------------------
+  INPUTS
+---------------------------*/
+.input-group {
+  position: relative;
+  margin: 25px 0;
+}
+
+.input-group i {
+  position: absolute;
+  top: 12px;
+  left: 10px;
+  color: #cc2c9b;
+  font-size: 18px;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 12px 15px 12px 40px;
+  border-radius: 12px;
+  border: 2px solid #ffc1e3;
+  outline: none;
+  background: #fff;
+  transition: 0.3s;
+}
+
+.input-group input:focus {
+  border-color: #ff4db2;
+}
+
+.input-group label {
+  position: absolute;
+  top: 12px;
+  left: 40px;
+  color: #a54a8d;
+  pointer-events: none;
+  transition: 0.3s ease;
+  z-index: 1;
+}
+
+.input-group input:focus + label,
+.input-group input:not(:placeholder-shown) + label,
+.input-group input:valid + label {
+  top: -10px;
+  left: 35px;
+  font-size: 12px;
+  background: white;
+  padding: 0 5px;
+  color: #ff007f;
+  z-index: 2;
+}
+
+.input-group input::placeholder {
+  color: #c0c0c0;
+  opacity: 0.7;
+}
+
+/* Inline fields */
+.input-inline {
+  display: flex;
+  gap: 15px;
+}
+
+/* BMI Box */
+.bmi-box {
+  background: #ffe6f7;
+  padding: 12px;
+  text-align: center;
+  border-radius: 10px;
+  margin-top: 10px;
+  font-weight: 600;
+  color: #9b0071;
+}
+
+/* --------------------------
+  RADIO + CHECKBOX
+---------------------------*/
+.radio-group {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0;
+  color: #7a006a;
+}
+
+.checkbox-grid {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 12px;
+  color: #7a006a;
+}
+
+.extra-fields.hidden {
+  display: none;
+}
+
+/* --------------------------
+  UPLOAD BOX
+---------------------------*/
+.upload-box {
+  border: 2px dashed #ff7ecb;
+  padding: 30px;
+  border-radius: 15px;
+  text-align: center;
+  color: #b30086;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.upload-box:hover {
+  background: #fff0fa;
+  transform: scale(1.02);
+}
+
+.upload-box i {
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
+.preview-img {
+  width: 100%;
+  margin-top: 20px;
+  border-radius: 12px;
+  display: block;
+}
+
+.hidden {
+  display: none;
+}
+
+/* --------------------------
+  BUTTONS
+---------------------------*/
+button {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(90deg, #ff3e9d, #ff6ec4);
+  border: none;
+  color: white;
+  font-size: 16px;
+  border-radius: 12px;
+  cursor: pointer;
+  margin-top: 22px;
+}
+
+button:hover {
+  background: linear-gradient(90deg, #ff2e8a, #ff5ab8);
+}
+
+.prev-btn {
+  background: #d48ac6;
+}
+
+.prev-btn:hover {
+  background: #c675b3;
+}

@@ -1,0 +1,112 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+    background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.result-container {
+    width: 90%;
+    max-width: 600px;
+    text-align: center;
+    padding: 30px;
+    animation: fadeIn 1.2s ease;
+}
+
+.title {
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #4a3e5b;
+}
+
+.glass {
+    background: rgba(255,255,255,0.45);
+    backdrop-filter: blur(12px);
+    padding: 22px;
+    border-radius: 16px;
+    margin-top: 20px;
+    border: 1px solid rgba(255,255,255,0.3);
+}
+
+.score-card h2 {
+    color: #4a3e5b;
+    margin-bottom: 10px;
+}
+
+.score-circle {
+    width: 140px;
+    height: 140px;
+    margin: 0 auto;
+    border-radius: 50%;
+    background: white;
+    font-size: 32px;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ee5a7d;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    transition: transform 0.4s ease;
+}
+
+.score-circle.pop {
+    transform: scale(1.15);
+}
+
+.risk-badge {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-size: 18px;
+    font-weight: 600;
+    color: white;
+}
+
+.summary p {
+    font-size: 15px;
+    color: #5e5171;
+}
+
+.recommend ul {
+    list-style: none;
+    padding: 0;
+}
+
+.recommend ul li {
+    background: white;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 8px 0;
+    color: #444;
+    font-size: 15px;
+    box-shadow: 0 5px 18px rgba(0,0,0,0.08);
+}
+
+.retake-btn {
+    margin-top: 25px;
+    padding: 12px 25px;
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    background: #ee5a7d;
+    color: white;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.retake-btn:hover {
+    background: #d84a6b;
+    transform: translateY(-2px);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}

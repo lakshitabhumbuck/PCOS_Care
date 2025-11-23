@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PCOS Assessment Results</title>
+    <link rel="stylesheet" href="result.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="result-container fade-in">
+
+        <h1 class="title">Your PCOS Assessment Result</h1>
+
+        <!-- Animated Score -->
+        <div class="score-card glass">
+            <h2>PCOS Probability Score</h2>
+            <div id="scoreCircle" class="score-circle">0%</div>
+        </div>
+
+        <!-- Risk Level -->
+        <div id="riskLevel" class="risk-badge">Loading...</div>
+
+        <!-- Summary -->
+        <div class="summary glass">
+            <h3>Summary</h3>
+            <p id="summaryText">Analyzing your details...</p>
+        </div>
+
+        <!-- Recommendations -->
+        <div class="recommend glass">
+            <h3>Recommendations For You</h3>
+            <ul id="recoList"></ul>
+        </div>
+
+        <button class="retake-btn" onclick="window.location.href='assessment.html'">
+            Retake Assessment
+        </button>
+
+    </div>
+
+    <script src="result.js"></script>
+</body>
+</html>
